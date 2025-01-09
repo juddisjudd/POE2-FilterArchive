@@ -1,0 +1,1522 @@
+##	USE AT YOUR OWN RISK!!!
+##	Balor vs. Greengroove loot filter for POE2
+
+## The filter can be edited with Filtration: https://www.reddit.com/r/pathofexile/comments/12gg60u/tool_filtration_fork_loot_filter_editor/
+## Filter wiki: https://pathofexile.fandom.com/wiki/Guide:Item_filter_guide
+
+##	v. 1.3.4
+##	- Re tiered and improved visualization of currency items.
+##	- Added endgame quality flask rule.
+##	- Changed appearance of jewelry in maps.
+
+##	v. 1.3.3
+##	- It's possible to filter armor in maps by AR / ES / EV.
+##	- Improved quality rules. You can hide weapons, armor or caster items.
+##	- Changed flask appearance to display magenta border but text displays rarity.
+##	- Added Flail and traps for future proofing.
+##	- Adjusted weapon progression strictness.
+##	- Hides Wisdom scrolls and bad normal / magic jewelry in maps.
+##	- Hide charms in yellow maps.
+##	- Nicer Waystone highlights.
+##	- Improved strictness for quality and socketed items in maps.
+
+# Section:  #   Quest & EXTRA
+# Section:  #   CURRENCY
+# Section:  #   GEM
+# Section:  #   QUALITY AND SOCKETED ITEMS
+# Section:  #   STUFF
+# Section:  #   ENDGAME - ARMOUR - CHEST
+# Section:  #   ENDGAME - ARMOUR - BOOTS
+# Section:  #   ENDGAME - ARMOUR - GLOVES
+# Section:  #   ENDGAME - ARMOUR - HELM
+# Section:  #   ENDGAME - ARMOUR - SHIELD
+# Section:  #   RACING - ARMOUR - CHEST
+# Section:  #   RACING - ARMOUR - BOOTS
+# Section:  #   RACING - ARMOUR - GLOVES
+# Section:  #   RACING - ARMOUR - HELM
+# Section:  #   RACING - ARMOUR - SHIELD / FOCUS
+# Section:  #   RACING - CASTER ITEMS AND QUIVERS
+# Section:  #   RACING - WEAPONS PROGRESSION
+# Section:  #   FLASKS - PROGRESSION
+# Section:  #   LOW LEVEL ITEMS
+# Section:  #   HIDDEN ITEMS
+# Section:  #   ANYTHING ELSE
+
+#-------------------------------------------------------------------------------#
+# Section:  #   Quest & EXTRA
+#-------------------------------------------------------------------------------#
+
+#Show # list of items. You can list here any basetype you'd like to see.
+#	BaseType "Expert Dualstring bow" "Expert Studded Vest" "Expert Spined Bracers" "Expert Firm Bracers" "Expert Sectioned Bracers" "Expert Pathfinder Coat" "Expert Serpentscale Coat" "Expert Lizardscale Boots" "Expert Steeltoe Boots" "Expert Laced Boots"
+#	SetBorderColor 215 25 0 255
+#   SetFontSize 45
+#	PlayAlertSound 1 100 # A - Tier 3
+
+Show
+	Class "Quest"
+	SetFontSize 45
+	SetTextColor 74 230 58 255 # T1 drops color / Quest items
+	PlayEffect Green
+	PlayAlertSound 2 90 # A - Tier 4
+
+#-------------------------------------------------------------------------------#
+# Section:  #   CURRENCY
+#-------------------------------------------------------------------------------#
+
+#T1 currency
+Show 
+	Class "Currency"
+	BaseType "An Audience with the King" "Divine Orb" "Mirror of Kalandra" "Mirror Shard" "Perfect Jeweller's Orb" "Greater Jeweller's Orb" "Orb of Annulment"
+	SetFontSize 45
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 255 255 255
+	SetBackgroundColor 240 90 35 255
+	PlayAlertSound 1 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+ 
+# T2 Currency
+Show 
+	Class "Currency"
+	BaseType "Glassblower's Bauble" "Chaos Orb" "Regal Orb" "Exalted Orb" "Orb of Alchemy" "Lesser Jeweller's Orb" "Orb of Chance" "Essence" "Gemcutter's Prism" "Vaal Orb"
+	SetFontSize 45
+	SetTextColor 20 0 40 255
+	SetBorderColor 20 0 40 255
+	SetBackgroundColor 249 150 25 255
+	PlayAlertSound 2 300
+	PlayEffect Orange
+	MinimapIcon 2 Orange Circle
+ 
+#T3 Currency
+Show 
+	Class "Currency"
+	BaseType "Orb of Transmutation" "Orb of Augmentation" "Blacksmith's Whetstone" "Armourer's Scrap" "Arcanist's Etcher" "Artificer's Orb"
+	SetFontSize 45
+	SetTextColor 20 0 40 255
+	SetBorderColor 20 0 40 255
+	SetBackgroundColor 210 178 210 255
+	PlayAlertSound 2 300
+
+Hide
+	Class "Currency"
+	AreaLevel >= 65
+	BaseType "Scroll of Wisdom" "Transmutation Shard" "Regal Shard"
+	SetFontSize 45
+	SetBorderColor 100 50 30 255
+	SetBackgroundColor 20 0 40 255
+
+#T4 Currency
+Show 
+	Class "Currency"
+	BaseType "Scroll of Wisdom" "Transmutation Shard" "Regal Shard"
+	SetFontSize 45
+	SetBorderColor 100 50 30 255
+	SetBackgroundColor 20 0 40 255
+
+Show 
+	Class "Currency"
+	BaseType "Gold"
+	StackSize >= 500
+	SetFontSize 45
+	SetTextColor 180 180 180 255
+	SetBorderColor 20 0 40 255
+	SetBackgroundColor 20 0 40 180
+	PlayAlertSound 2 300
+	MinimapIcon 0 Grey Cross
+
+Show 
+	Class "Currency"
+	BaseType "Gold"
+	StackSize >= 100
+	SetFontSize 40
+	SetTextColor 180 180 180 255
+	SetBorderColor 20 0 40 255
+	SetBackgroundColor 20 0 40 180
+	MinimapIcon 1 Grey Cross
+ 
+Show 
+	Class "Currency"
+	BaseType "Gold"
+	StackSize >= 30
+	SetFontSize 30
+	SetTextColor 180 180 180 255
+	SetBorderColor 20 0 40 255
+	SetBackgroundColor 20 0 40 180
+	MinimapIcon 2 Grey Cross
+
+Show 
+	Class "Currency"
+	BaseType "Gold"
+	SetFontSize 30
+	SetTextColor 180 180 180 255
+	SetBorderColor 20 0 40 255
+	SetBackgroundColor 20 0 40 180
+ 
+Show
+	Class "Currency"
+	BaseType = "Distilled Guilt" "Distilled Ire" "Distilled Greed"
+	SetFontSize 45
+	SetTextColor 20 0 40 255
+	SetBorderColor 20 0 40 255
+	SetBackgroundColor 210 178 210 255
+	PlayAlertSound 2 300
+	MinimapIcon 1 Pink Diamond
+
+Show
+Class "Currency"
+	BaseType = "Distilled Disgust" "Distilled Envy" "Distilled Despair" "Distilled Suffering" "Distilled Paranoia" "Distilled Fear" "Distilled Isolation"
+	SetFontSize 45
+	SetTextColor 255 207 255
+	SetBorderColor 255 207 255
+	SetBackgroundColor 65 20 80
+	PlayAlertSound 2 300
+	PlayEffect Purple
+	MinimapIcon 1 Purple Diamond
+
+Show
+	Class "Currency"
+	BaseType = "Catalyst"
+	SetFontSize 45
+	SetTextColor 20 0 40 255
+	SetBorderColor 20 0 40 255
+	SetBackgroundColor 210 178 210 255
+	PlayAlertSound 3 300
+	MinimapIcon 1 Pink Diamond
+
+Show
+Class "Socketable"
+	BaseType = "soul core"
+	SetFontSize 45
+	SetTextColor 255 207 255
+	SetBorderColor 255 207 255
+	SetBackgroundColor 65 20 80
+	PlayAlertSound 2 300
+	PlayEffect Purple
+	MinimapIcon 1 Purple Diamond
+
+Show
+Class "Socketable"
+	BaseType = "rune"
+	SetFontSize 45
+	SetTextColor 20 0 40 255
+	SetBorderColor 20 0 40 255
+	SetBackgroundColor 210 178 210 255
+	PlayAlertSound 3 100
+
+Show 
+	BaseType "Splinter"
+	SetFontSize 45
+	SetTextColor 255 207 255
+	SetBorderColor 255 207 255
+	SetBackgroundColor 65 20 80
+	PlayAlertSound 2 300
+	MinimapIcon 2 Purple Kite
+
+Show 
+	BaseType "Simulacrum" "Tablet" "Breachstone" "Ultimatum" "Barya"
+	SetFontSize 45
+	SetTextColor 255 207 255
+	SetBorderColor 255 207 255
+	SetBackgroundColor 65 20 80
+	PlayAlertSound 2 300
+	PlayEffect Purple
+	MinimapIcon 0 Purple Square
+
+Show 
+	Class "Currency"
+	BaseType "Exotic Coinage" "Artifact"
+	SetFontSize 45
+	SetTextColor 20 0 40 255
+	SetBorderColor 20 0 40 255
+	SetBackgroundColor 210 178 210 255
+	PlayAlertSound 3 100
+	MinimapIcon 2 Pink Circle
+
+#T1 currency
+Show 
+	Class "Currency"
+	BaseType "Omen of Whittling" "Omen of Amelioration" "Omen of Corruption"
+	SetFontSize 45
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 255 255 255
+	SetBackgroundColor 240 90 35 255
+	PlayAlertSound 1 300
+	PlayEffect Red
+	MinimapIcon 0 Red Star
+
+Show 
+	Class "Currency"
+	BaseType "Omen"
+	SetFontSize 45
+	SetTextColor 20 0 40 255
+	SetBorderColor 20 0 40 255
+	SetBackgroundColor 210 178 210 255
+	PlayAlertSound 3 100
+	MinimapIcon 2 Pink Circle
+
+#Catch All Currency Tag
+Show 
+	Class "Currency"
+	SetFontSize 45
+	SetTextColor 255 255 255 255
+	SetBackgroundColor 33 48 169 255
+	PlayAlertSound 2 300
+	PlayEffect Yellow
+	MinimapIcon 1 Blue Circle
+	SetBorderColor 255 190 0 255
+ 
+#-------------------------------------------------------------------------------#
+# Section:  #   GEM
+#-------------------------------------------------------------------------------#
+ 
+Show 
+Class "Gem"
+	SetFontSize 45
+	SetTextColor 30 190 190 255
+	SetBorderColor 30 190 190 255
+	PlayAlertSound 2 300
+	PlayEffect Grey
+	MinimapIcon 1 White Triangle
+
+Show
+	BaseType "Uncut Skill Gem" "Uncut Support Gem" "Uncut Spirit Gem" "Uncut"
+	SetFontSize 45
+	SetTextColor 30 190 190 255
+	SetBorderColor 30 190 190 255
+	PlayAlertSound 2 300
+	PlayEffect Grey
+	MinimapIcon 1 White Triangle
+
+#-------------------------------------------------------------------------------#
+# Section:  #   QUALITY AND SOCKETED ITEMS
+#-------------------------------------------------------------------------------# 
+
+#2 socketed items
+Show
+	Rarity "Normal" "Magic" "Rare"
+	Sockets > 1
+	SetFontSize 45
+	SetBorderColor 0 240 190 255
+
+# Higher quality armor
+Show
+	Class "Boots" "Gloves" "Helmets" "Shield" "Focus"
+	Quality > 9
+	SetFontSize 40
+	SetBorderColor 0 240 190 255
+
+# Higher quality weapons
+Show
+	Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail" "Staff"
+	Quality > 9
+	SetFontSize 40
+	SetBorderColor 0 240 190 255
+
+# Higher quality caster items
+Show
+	Class "Wand" "Sceptre" "Staff"
+	Quality > 9
+	SetFontSize 40
+	SetBorderColor 0 240 190 255
+
+#socketed items
+Show
+	Rarity "Normal" "Magic" "Rare"
+	Sockets > 0
+    ItemLevel <= 64
+	SetFontSize 45
+	SetBorderColor 0 240 190 255
+
+#quality armor
+Show
+	Class "Boots" "Gloves" "Helmets" "Shield" "Focus"
+	Quality > 0
+    ItemLevel <= 64
+	SetFontSize 40
+	SetBorderColor 0 240 190 255
+
+#quality weapons
+Show
+	Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail" "Staff"
+	Quality > 0
+    ItemLevel <= 64
+	SetFontSize 40
+	SetBorderColor 0 240 190 255
+
+#quality caster items
+Show
+	Class "Wand" "Sceptre" "Staff"
+	Quality > 0
+    ItemLevel <= 64
+	SetFontSize 40
+	SetBorderColor 0 240 190 255
+
+#-------------------------------------------------------------------------------#
+# Section:  #   STUFF
+#-------------------------------------------------------------------------------# 
+
+Show
+	BaseType "Waystone"
+	WaystoneTier >= 11
+	SetFontSize 45
+	SetTextColor 74 230 58 255 # T1 drops color / Quest items
+	SetBackgroundColor 44 44 44 # Map Background Color
+	SetBorderColor 255 000 00 255
+	MinimapIcon 2 Red Square
+	PlayEffect Red
+	PlayAlertSound 7 160
+	DisableDropSound
+
+Show
+	BaseType "Waystone"
+	WaystoneTier >= 6
+	SetFontSize 45
+	SetBackgroundColor 44 44 44 # Map Background Color
+	SetBorderColor 255 255 000 255
+	MinimapIcon 2 Yellow Square
+	PlayEffect Yellow Temp
+	PlayAlertSound 2 90
+	DisableDropSound
+
+Show
+	BaseType "Waystone"
+	SetFontSize 45
+	SetBackgroundColor 44 44 44 # Map Background Color
+	SetBorderColor 255 255 255 255
+	MinimapIcon 2 White Square
+	PlayEffect White Temp
+	PlayAlertSound 2 90
+	DisableDropSound
+
+Show # Special items
+	BaseType "Fragment" "Fate"
+	SetFontSize 45
+	SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 74 230 58 255 # T1 drops color / Quest items
+	MinimapIcon 0 Pink Star
+	PlayEffect Pink
+	PlayAlertSound 1 100 # A - Tier 3
+
+Show # Special items
+	BaseType "Golden Mantle" "Golden Bracers" "Golden Caligae" "Golden Wreath" "Golden Visage" "Golden Flame"
+	SetFontSize 45
+	SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 74 230 58 255 # T1 drops color / Quest items
+	MinimapIcon 2 Yellow Circle
+	PlayEffect Green Temp
+	PlayAlertSound 1 100 # A - Tier 3
+
+Show # Special weapons
+	BaseType "Energy Blade" "Golden Blade" "Fishing Rod"
+	SetFontSize 45
+	SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 74 230 58 255 # T1 drops color / Quest items
+	MinimapIcon 2 Yellow Circle
+	PlayEffect Green Temp
+	PlayAlertSound 1 100 # A - Tier 3
+
+Show
+	BaseType = "Gold Key" "Silver Key"
+	SetFontSize 45
+	SetTextColor 0 240 190 255
+	SetBorderColor 0 240 190 255
+	SetBackgroundColor 20 0 40 255
+	PlayAlertSound 3 300
+	PlayEffect Yellow
+	MinimapIcon 1 Yellow Diamond
+
+Show
+	BaseType = "Bronze Key"
+	SetFontSize 45
+	SetBorderColor 0 240 190 255
+	SetBackgroundColor 20 0 40 255
+	PlayAlertSound 3 300
+	PlayEffect Yellow
+	MinimapIcon 1 Yellow Diamond
+
+Show 
+	Rarity Unique
+	SetFontSize 45
+	SetTextColor 255 255 255 255
+	SetBorderColor 255 255 255 255
+	SetBackgroundColor 175 96 37 255
+	PlayAlertSound 3 300
+	PlayEffect Red
+	MinimapIcon 0 Brown Star
+
+Show
+	Rarity Rare
+	Class "Body"
+	SetFontSize 45
+	SetBackgroundColor 60 0 80 255
+ 
+Show 
+	Rarity Rare
+	Class "Boots" "Gloves" "Helmets"
+	SetFontSize 45
+	SetBackgroundColor 60 0 80 255
+ 
+Show 
+	Rarity Rare
+	SetFontSize 45
+	SetBackgroundColor 60 0 80 255
+
+Show 
+	Class "Jewel"
+	SetFontSize 45
+	SetTextColor 0 240 190 255
+	SetBorderColor 0 240 190 255
+	SetBackgroundColor 20 0 40 255
+	PlayAlertSound 3 300
+	PlayEffect Yellow
+	MinimapIcon 1 Yellow Diamond
+
+Show
+	Class "Amulet"
+	BaseType "Amber Amulet" "Azure Amulet" "Bloodstone Amulet" "Gold Amulet" "Jade Amulet" "Lapis Amulet" "Lunar Amulet" "Solar Amulet" "Stellar Amulet"
+	Rarity <= Magic
+	SetFontSize 45
+	SetBorderColor 0 240 190 255
+
+Show
+	Class "Ring"
+	BaseType "Amethyst Ring" "Breach Ring" "Gold Ring" "Lazuli Ring" "Pearl Ring" "Prismatic Ring" "Ruby Ring" "Sapphire Ring" "Topaz Ring"
+	Rarity <= Magic
+	SetFontSize 45
+	SetBorderColor 0 240 190 255
+
+Show
+	Class "Belt"
+	BaseType "Utility Belt" "Fine Belt"
+	SetFontSize 45
+	SetBorderColor 0 240 190 255
+
+Show
+	Class "Amulet" "Ring" "Belt"
+	ItemLevel <= 64
+	SetFontSize 45
+	SetTextColor 0 240 190 255
+	SetBorderColor 0 240 190 255
+	SetBackgroundColor 20 0 40 255
+	PlayAlertSound 3 100
+	PlayEffect Yellow
+	MinimapIcon 2 Yellow Diamond
+
+Show
+	Class "Charm"
+	AreaLevel <= 69
+	SetFontSize 45
+	SetTextColor 0 240 190 255
+	SetBorderColor 0 240 190 255
+	SetBackgroundColor 20 0 40 255
+	PlayAlertSound 3 300
+	PlayEffect Yellow
+	MinimapIcon 1 Yellow Diamond
+
+Show
+	Class "Relic"
+	SetFontSize 45
+	SetTextColor 0 240 190 255
+	SetBorderColor 0 240 190 255
+	SetBackgroundColor 20 0 40 255
+	PlayAlertSound 3 300
+	PlayEffect Yellow
+	MinimapIcon 1 Yellow Diamond
+
+#-------------------------------------------------------------------------------#
+# Section:  #   ENDGAME - ARMOUR - CHEST
+#-------------------------------------------------------------------------------#
+
+Show # Endgame Filter - Armour - Chest - AR |Disable
+	Class "Body Armour"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour > 1
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Chest - AR/EV |Disable
+	Class "Body Armour"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour > 0
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Chest - EV |Disable
+	Class "Body Armour"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour = 0
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Chest - ES |Disable
+	Class "Body Armour"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour = 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Chest - AR/ES |Disable
+	Class "Body Armour"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour > 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Chest - EV/ES |Disable
+	Class "Body Armour"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour = 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+#-------------------------------------------------------------------------------#
+# Section:  #   ENDGAME - ARMOUR - BOOTS
+#-------------------------------------------------------------------------------#
+
+Show # Endgame Filter - Armour - Boots - AR |Disable
+	Class "Boots"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour > 1
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Boots - AR/EV |Disable
+	Class "Boots"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour > 0
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Boots - EV |Disable
+	Class "Boots"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour = 0
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Boots - ES |Disable
+	Class "Boots"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour = 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Boots - AR/ES |Disable
+	Class "Boots"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour > 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Boots - EV/ES |Disable
+	Class "Boots"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour = 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+#-------------------------------------------------------------------------------#
+# Section:  #   ENDGAME - ARMOUR - GLOVES
+#-------------------------------------------------------------------------------#
+
+Show # Endgame Filter - Armour - Gloves - AR |Disable
+	Class "Gloves"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour > 1
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Gloves - AR/EV |Disable
+	Class "Gloves"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour > 0
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Gloves - EV |Disable
+	Class "Gloves"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour = 0
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Gloves - ES |Disable
+	Class "Gloves"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour = 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Gloves - AR/ES |Disable
+	Class "Gloves"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour > 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Gloves - EV/ES |Disable
+	Class "Gloves"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour = 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+#-------------------------------------------------------------------------------#
+# Section:  #   ENDGAME - ARMOUR - HELM
+#-------------------------------------------------------------------------------#
+
+Show # Endgame Filter - Armour - Helm - AR |Disable
+	Class "Helm"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour > 1
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Helm - AR/EV |Disable
+	Class "Helm"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour > 0
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Helm - EV |Disable
+	Class "Helm"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour = 0
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Helm - ES |Disable
+	Class "Helm"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour = 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Helm - AR/ES |Disable
+	Class "Helm"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour > 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Helm - EV/ES |Disable
+	Class "Helm"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour = 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+#-------------------------------------------------------------------------------#
+# Section:  #   ENDGAME - ARMOUR - SHIELD
+#-------------------------------------------------------------------------------#
+
+Show # Endgame Filter - Armour - Shield - AR |Disable
+	Class "Shield"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour > 1
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Shield - AR/EV |Disable
+	Class "Shield"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour > 0
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Shield - EV |Disable
+	Class "Shield"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour = 0
+	BaseEnergyShield = 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Shield - ES |Disable
+	Class "Shield"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour = 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Shield - AR/ES |Disable
+	Class "Shield"
+	BaseType "Expert"
+	BaseEvasion = 0
+	BaseArmour > 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+Show # Endgame Filter - Armour - Shield - EV/ES |Disable
+	Class "Shield"
+	BaseType "Expert"
+	BaseEvasion > 0
+	BaseArmour = 0
+	BaseEnergyShield > 0
+	Rarity <= Magic
+	DropLevel >= 65
+	SetFontSize 45
+
+#-------------------------------------------------------------------------------#
+# Section:  #   RACING - ARMOUR - CHEST
+#-------------------------------------------------------------------------------#
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Normal |Disable
+    Class "Body Armour"
+    Rarity = Normal
+    DropLevel >= 52
+    ItemLevel <= 64
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Normal |Disable
+    Class "Body Armour"
+    Rarity = Normal
+    DropLevel >= 45
+    ItemLevel <= 51
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Normal |Disable
+    Class "Body Armour"
+    Rarity = Normal
+    DropLevel >= 33
+    ItemLevel <= 44
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Normal |Disable
+    Class "Body Armour"
+    Rarity = Normal
+    DropLevel >= 20
+    ItemLevel <= 32
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Normal |Disable
+    Class "Body Armour"
+    Rarity = Normal
+    DropLevel >= 11
+    ItemLevel <= 19
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Normal |Disable
+    Class "Body Armour"
+    Rarity = Normal
+    ItemLevel <= 10
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Magic |Disable
+    Class "Body Armour"
+    Rarity = Magic
+    DropLevel >= 65
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Magic |Disable
+    Class "Body Armour"
+    Rarity = Magic
+    DropLevel >= 52
+    ItemLevel <= 64
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Magic |Disable
+    Class "Body Armour"
+    Rarity = Magic
+    DropLevel >= 45
+    ItemLevel <= 51
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Magic |Disable
+    Class "Body Armour"
+    Rarity = Magic
+    DropLevel >= 33
+    ItemLevel <= 44
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Magic |Disable
+    Class "Body Armour"
+    Rarity = Magic
+    DropLevel >= 20
+    ItemLevel <= 32
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Magic |Disable
+    Class "Body Armour"
+    Rarity = Magic
+    DropLevel >= 11
+    ItemLevel <= 19
+
+Show # Racing Filter - Armour - Chest - Classic (General leveling) - Magic |Disable
+    Class "Body Armour"
+    Rarity = Magic
+    ItemLevel <= 10
+
+#-------------------------------------------------------------------------------#
+# Section:  #   RACING - ARMOUR - BOOTS
+#-------------------------------------------------------------------------------#
+
+Show # Racing Filter - Armour - Boots - Normal |Disable
+    Class "Boots"
+    ItemLevel <= 10
+    Rarity = Normal
+    SetBorderColor 74 230 58 255 # Boots border color
+
+Show # Racing Filter - Armour - Boots - Normal |Disable
+    Class "Boots"
+    DropLevel >= 11
+    ItemLevel <= 26
+    Rarity = Normal
+    SetBorderColor 74 230 58 255 # Boots border color
+
+Show # Racing Filter - Armour - Boots - Normal |Disable
+    Class "Boots"
+    DropLevel >= 27
+    ItemLevel <= 44
+    Rarity = Normal
+    SetBorderColor 74 230 58 255 # Boots border color
+
+Show # Racing Filter - Armour - Boots - Normal |Disable
+    Class "Boots"
+    DropLevel >= 45
+    ItemLevel <= 51
+    Rarity = Normal
+    SetBorderColor 74 230 58 255 # Boots border color
+
+Show # Racing Filter - Armour - Boots - Normal |Disable
+    Class "Boots"
+    DropLevel >= 52
+    ItemLevel <= 64
+    Rarity = Normal
+    SetBorderColor 74 230 58 255 # Boots border color
+
+Show # Racing Filter - Armour - Boots - Magic |Disable
+    Class "Boots"
+    ItemLevel <= 10
+    Rarity = Magic
+    SetBorderColor 74 230 58 255 # Boots border color
+
+Show # Racing Filter - Armour - Boots - Magic |Disable
+    Class "Boots"
+    DropLevel >= 11
+    ItemLevel <= 26
+    Rarity = Magic
+    SetBorderColor 74 230 58 255 # Boots border color
+
+Show # Racing Filter - Armour - Boots - Magic |Disable
+    Class "Boots"
+    DropLevel >= 27
+    ItemLevel <= 44
+    Rarity = Magic
+    SetBorderColor 74 230 58 255 # Boots border color
+
+Show # Racing Filter - Armour - Boots - Magic |Disable
+    Class "Boots"
+    DropLevel >= 45
+    ItemLevel <= 51
+    Rarity = Magic
+    SetBorderColor 74 230 58 255 # Boots border color
+
+Show # Racing Filter - Armour - Boots - Magic |Disable
+    Class "Boots"
+    DropLevel >= 52
+    ItemLevel <= 64
+    Rarity = Magic
+    SetBorderColor 74 230 58 255 # Boots border color
+
+#-------------------------------------------------------------------------------#
+# Section:  #   RACING - ARMOUR - GLOVES
+#-------------------------------------------------------------------------------#
+
+Show # Racing Filter - Armour - Gloves - Normal |Disable
+    Class "Gloves"
+    ItemLevel <= 14
+    Rarity = Normal
+    SetBorderColor 0 200 255 255 # Gloves border color 
+
+Show # Racing Filter - Armour - Gloves - Normal |Disable
+    Class "Gloves"
+    DropLevel >= 12
+    ItemLevel <= 25
+    Rarity = Normal
+    SetBorderColor 0 200 255 255 # Gloves border color 
+
+Show # Racing Filter - Armour - Gloves - Normal |Disable
+    Class "Gloves"
+    DropLevel >= 26
+    ItemLevel <= 44
+    Rarity = Normal
+    SetBorderColor 0 200 255 255 # Gloves border color 
+
+Show # Racing Filter - Armour - Gloves - Normal |Disable
+    Class "Gloves"
+    DropLevel >= 45
+    ItemLevel <= 51
+    Rarity = Normal
+    SetBorderColor 0 200 255 255 # Gloves border color
+
+Show # Racing Filter - Armour - Gloves - Normal |Disable
+    Class "Gloves"
+    DropLevel >= 52
+    ItemLevel <= 64
+    Rarity = Normal
+    SetBorderColor 0 200 255 255 # Gloves border color
+
+Show # Racing Filter - Armour - Gloves - Magic |Disable
+    Class "Gloves"
+    ItemLevel <= 14
+    Rarity = Magic
+    SetBorderColor 0 200 255 255 # Gloves border color 
+
+Show # Racing Filter - Armour - Gloves - Magic |Disable
+    Class "Gloves"
+    DropLevel >= 12
+    ItemLevel <= 25
+    Rarity = Magic
+    SetBorderColor 0 200 255 255 # Gloves border color 
+
+Show # Racing Filter - Armour - Gloves - Magic |Disable
+    Class "Gloves"
+    DropLevel >= 26
+    ItemLevel <= 44
+    Rarity = Magic
+    SetBorderColor 0 200 255 255 # Gloves border color 
+
+Show # Racing Filter - Armour - Gloves - Magic |Disable
+    Class "Gloves"
+    DropLevel >= 45
+    ItemLevel <= 51
+    Rarity = Magic
+    SetBorderColor 0 200 255 255 # Gloves border color
+
+Show # Racing Filter - Armour - Gloves - Magic |Disable
+    Class "Gloves"
+    DropLevel >= 52
+    ItemLevel <= 64
+    Rarity = Magic
+    SetBorderColor 0 200 255 255 # Gloves border color
+
+#-------------------------------------------------------------------------------#
+# Section:  #   RACING - ARMOUR - HELM
+#-------------------------------------------------------------------------------#
+
+Show # Racing Filter - Armour - Helm - Normal |Disable
+    Class "Helm"
+    ItemLevel <= 11
+    Rarity = Normal
+    SetBorderColor 215 25 0 255 # Helmets border color
+
+Show # Racing Filter - Armour - Helm - Normal |Disable
+    Class "Helm"
+    DropLevel >= 12
+    ItemLevel <= 27
+    Rarity = Normal
+    SetBorderColor 215 25 0 255 # Helmets border color
+
+Show # Racing Filter - Armour - Helm - Normal |Disable
+    Class "Helm"
+    DropLevel >= 26
+    ItemLevel <= 44
+    Rarity = Normal
+    SetBorderColor 215 25 0 255 # Helmets border color
+
+Show # Racing Filter - Armour - Helm - Normal |Disable
+    Class "Helm"
+    DropLevel >= 45
+    ItemLevel <= 64
+    Rarity = Normal
+    SetBorderColor 215 25 0 255 # Helmets border color
+
+Show # Racing Filter - Armour - Helm - Magic |Disable
+    Class "Helm"
+    ItemLevel <= 11
+    Rarity = Magic
+    SetBorderColor 215 25 0 255 # Helmets border color
+
+Show # Racing Filter - Armour - Helm - Magic |Disable
+    Class "Helm"
+    DropLevel >= 12
+    ItemLevel <= 27
+    Rarity = Magic
+    SetBorderColor 215 25 0 255 # Helmets border color
+
+Show # Racing Filter - Armour - Helm - Magic |Disable
+    Class "Helm"
+    DropLevel >= 26
+    ItemLevel <= 44
+    Rarity = Magic
+    SetBorderColor 215 25 0 255 # Helmets border color
+
+Show # Racing Filter - Armour - Helm - Magic |Disable
+    Class "Helm"
+    DropLevel >= 45
+    ItemLevel <= 64
+    Rarity = Magic
+    SetBorderColor 215 25 0 255 # Helmets border color
+
+#-------------------------------------------------------------------------------#
+# Section:  #   RACING - ARMOUR - SHIELD / FOCUS
+#-------------------------------------------------------------------------------#
+
+Show # Racing Filter - Armour -  Shield - Normal |Disable
+    Class "Shield"
+    Rarity = Normal
+    ItemLevel <= 64
+    DropLevel >= 52
+
+Show # Racing Filter - Armour -  Shield - Normal |Disable
+    Class "Shield"
+    Rarity = Normal
+    DropLevel >= 29
+    ItemLevel <= 51
+
+Show # Racing Filter - Armour -  Shield - Normal |Disable
+    Class "Shield"
+    Rarity = Normal
+    DropLevel >= 12
+    ItemLevel <= 28
+
+Show # Racing Filter - Armour -  Shield - Normal |Disable
+    Class "Shield"
+    Rarity = Normal
+    ItemLevel <= 12
+
+Show # Racing Filter - Armour -  Shield - Magic |Disable
+    Class "Shield"
+    Rarity = Magic
+    ItemLevel <= 64
+    DropLevel >= 52
+
+Show # Racing Filter - Armour -  Shield - Magic |Disable
+    Class "Shield"
+    Rarity = Magic
+    DropLevel >= 29
+    ItemLevel <= 51
+
+Show # Racing Filter - Armour -  Shield - Magic |Disable
+    Class "Shield"
+    Rarity = Magic
+    DropLevel >= 12
+    ItemLevel <= 28
+
+Show # Racing Filter - Armour -  Shield - Magic |Disable
+    Class "Shield"
+    Rarity = Magic
+    ItemLevel <= 12
+
+Show # Racing Filter - Armour -  Focus - Normal |Disable
+    Class "Focus"
+    Rarity = Normal
+    DropLevel >= 52
+
+Show # Racing Filter - Armour -  Focus - Normal |Disable
+    Class "Focus"
+    Rarity = Normal
+    DropLevel >= 29
+    ItemLevel <= 51
+
+Show # Racing Filter - Armour -  Focus - Normal |Disable
+    Class "Focus"
+    Rarity = Normal
+    DropLevel >= 12
+    ItemLevel <= 28
+
+Show # Racing Filter - Armour -  Focus - Normal |Disable
+    Class "Focus"
+    Rarity = Normal
+    ItemLevel <= 12
+
+Show # Racing Filter - Armour -  Focus - Magic |Disable
+    Class "Focus"
+    Rarity = Magic
+    DropLevel >= 52
+
+Show # Racing Filter - Armour -  Focus - Magic |Disable
+    Class "Focus"
+    Rarity = Magic
+    DropLevel >= 29
+    ItemLevel <= 51
+
+Show # Racing Filter - Armour -  Focus - Magic |Disable
+    Class "Focus"
+    Rarity = Magic
+    DropLevel >= 12
+    ItemLevel <= 28
+
+Show # Racing Filter - Armour -  Focus - Magic |Disable
+    Class "Focus"
+    Rarity = Magic
+    ItemLevel <= 12
+
+#-------------------------------------------------------------------------------#
+# Section:  #   RACING - CASTER ITEMS AND QUIVERS
+#-------------------------------------------------------------------------------#
+
+Show # Traps
+    Class "Trap"
+
+Show # Sigil of power staff
+    Class "Staff"
+	BaseType "Chiming staff"
+	SetFontSize 45
+
+Show # Wand
+    Class "Wand"
+	SetFontSize 45
+
+Show # Sceptre
+    Class "Sceptre"
+	SetFontSize 45
+
+Show # Staff
+    Class == "Staves"
+	SetFontSize 45
+
+Show # Good quiver bases
+    Class "Quiver"
+	BaseType "Visceral Quiver" "Primed Quiver"
+	SetFontSize 45
+
+Show
+    Class "Quiver"
+	SetFontSize 45
+
+Show # Bow exception	
+	Class "Bow"
+	BaseType "Dualstring bow"
+	AreaLevel <= 77
+	SetFontSize 45
+
+#-------------------------------------------------------------------------------#
+# Section:  #   RACING - WEAPONS PROGRESSION
+#-------------------------------------------------------------------------------#
+
+Show # Weapon map filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Normal
+    DropLevel >= 65
+
+Show # Weapon filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Normal
+	ItemLevel <= 15
+    DropLevel >= 1
+
+Show # Weapon filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Normal
+	ItemLevel <= 30
+    DropLevel >= 15
+
+Show # Weapon filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Normal
+	ItemLevel <= 40
+    DropLevel >= 25
+
+Show # Weapon filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Normal
+	ItemLevel <= 55
+    DropLevel >= 35
+
+Show # Weapon filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Normal
+	ItemLevel <= 64
+    DropLevel >= 45
+
+Show # Weapon map filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Magic
+    DropLevel >= 65
+
+Show # Weapon filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Magic
+	ItemLevel <= 15
+    DropLevel >= 1
+
+Show # Weapon filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Magic
+	ItemLevel <= 30
+    DropLevel >= 15
+
+Show # Weapon filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Magic
+	ItemLevel <= 40
+    DropLevel >= 25
+
+Show # Weapon filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Magic
+	ItemLevel <= 55
+    DropLevel >= 35
+
+Show # Weapon filter
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail"
+    Rarity = Magic
+	ItemLevel <= 64
+    DropLevel >= 45
+
+#-------------------------------------------------------------------------------#
+# Section:  #   FLASKS - PROGRESSION
+#-------------------------------------------------------------------------------#
+
+Show # Ultimate Life Flask
+    BaseType "Life Flask"
+    DropLevel >= 60
+    Rarity <= Magic
+	Quality > 0
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+Show # Ultimate Life Flask
+    BaseType "Life Flask"
+    DropLevel >= 60
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+# Flask progression.
+Show # Leveling Filter (Enable for leveling and races) - Flasks - Progression - Life Flask |Disable
+    BaseType "Life Flask"
+    ItemLevel <= 60
+    DropLevel >= 50
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+# Flask progression.
+Show # Leveling Filter (Enable for leveling and races) - Flasks - Progression - Life Flask |Disable
+    BaseType "Life Flask"
+    ItemLevel <= 50
+    DropLevel >= 40
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+# Flask progression.
+Show # Leveling Filter (Enable for leveling and races) - Flasks - Progression - Life Flask |Disable
+    BaseType "Life Flask"
+    ItemLevel <= 40
+    DropLevel >= 23
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+# Flask progression.
+Show # Leveling Filter (Enable for leveling and races) - Flasks - Progression - Life Flask |Disable
+    BaseType "Life Flask"
+    ItemLevel <= 23
+    DropLevel >= 10
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+# Flask progression.
+Show # Leveling Filter (Enable for leveling and races) - Flasks - Progression - Life Flask |Disable
+    BaseType "Life Flask"
+    ItemLevel <= 11
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+Show # Ultimate Mana Flask
+    BaseType "Mana Flask"
+    DropLevel >= 60
+    Rarity <= Magic
+	Quality > 0
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+Show # Ultimate Mana Flask
+    BaseType "Mana Flask"
+    DropLevel >= 60
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+# Flask progression.
+Show # Leveling Filter (Enable for leveling and races) - Flasks - Progression - Mana Flask |Disable
+    BaseType "Mana Flask"
+    ItemLevel <= 60
+    DropLevel >= 50
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+# Flask progression.
+Show # Leveling Filter (Enable for leveling and races) - Flasks - Progression - Mana Flask |Disable
+    BaseType "Mana Flask"
+    ItemLevel <= 50
+    DropLevel >= 40
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+# Flask progression.
+Show # Leveling Filter (Enable for leveling and races) - Flasks - Progression - Mana Flask |Disable
+    BaseType "Mana Flask"
+    ItemLevel <= 40
+    DropLevel >= 23
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+# Flask progression.
+Show # Leveling Filter (Enable for leveling and races) - Flasks - Progression - Mana Flask |Disable
+    BaseType "Mana Flask"
+    ItemLevel <= 23
+    DropLevel >= 10
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+# Flask progression.
+Show # Leveling Filter (Enable for leveling and races) - Flasks - Progression - Mana Flask |Disable
+    BaseType "Mana Flask"
+    ItemLevel <= 11
+    Rarity <= Magic
+    # SetTextColor 255 45 175 # T2 drops color
+	SetBorderColor 255 45 175
+    SetFontSize 45
+
+#-------------------------------------------------------------------------------#
+# Section:  #   LOW LEVEL ITEMS
+#-------------------------------------------------------------------------------#
+
+Show
+    ItemLevel <= 13
+    Rarity = Normal
+
+Show
+    ItemLevel <= 13
+    Rarity = Magic
+
+#-------------------------------------------------------------------------------#
+# Section:  #   HIDDEN ITEMS
+#-------------------------------------------------------------------------------#
+
+# Filtering starts at level 14. Normal items that are not Caught get filtered.
+Hide
+	Class "Amulet" "Ring" "Belt" "Charm"
+    ItemLevel >= 65
+    SetTextColor 200 200 200 100
+    SetFontSize 18
+
+Hide
+    Class "Body Armour" "Boots" "Gloves" "Helm" "Shield" "Focus" "Quiver"
+    Rarity <= Magic
+    ItemLevel >= 14
+    SetTextColor 200 200 200 100
+    SetFontSize 18
+
+Hide
+    Class "Axe" "Bow" "Claw" "Crossbow" "Dagger" "Mace" "Quarterstave" "Spear" "Sword" "Flail" "Staves" "Wand" "Sceptre" "Trap"
+	Rarity <= Magic
+    ItemLevel >= 14
+    SetTextColor 200 200 200 100
+    SetFontSize 18
+
+Hide
+    Class "Life Flask" "Mana Flask"
+    Rarity <= Magic
+    ItemLevel >= 14
+    SetTextColor 200 200 200 100
+    SetFontSize 18
+
+#-------------------------------------------------------------------------------#
+# Section:  #   ANYTHING ELSE
+#-------------------------------------------------------------------------------#
+
+# If you see this it means that the loot filter is out of date or broken. Should never happen.
+Show # ~Misc - Extras - Just in case anything falls trough warning highlight |Disable
+    SetTextColor 0 0 0
+    SetBackgroundColor 255 45 175 # T2 drops color
+    SetBorderColor 255 45 175 # T2 drops color
+    SetFontSize 45
+	MinimapIcon 0 Purple Square
